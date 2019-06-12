@@ -6,34 +6,26 @@ namespace ATMTests
 {
     public class UnitTest1
     {
-        [Theory]
-        [InlineData("Balance", "1")]
-        [InlineData("Withdraw", "2")]
-        [InlineData("Deposit", "3")]
-        [InlineData("Exit", "4")]
-        public void MigratesToCorrectOperation(string expected, string commandInput)
+    [Fact]
+    public void canViewBalance()
         {
-            Assert.Equal(expected, Program.Main(commandInput));
+            Assert.Equal(1000, Program.ViewBalance());
         }
 
-        //[Fact]
-        public void CannotHaveNegativeBalance()
+    [Theory]
+    [InlineData(900, 100)]
+    [InlineData(750, 250)]
+    [InlineData(0, 1000)]
+    [InlineData(500, 500)]
+
+        public void canWithdraw(int expected, int withdrawn)
         {
-
+            Assert.Equal(expected, Program.Withdrawal(withdrawn));
         }
-
-        //[Fact]
-        public void CannotDepositNegative()
+    [Fact]
+    public void canDeposit()
         {
-
+            Assert.Equal(50, Program.Deposit());
         }
-        
-        //[Fact]
-        public void CanDepositDecimal()
-        {
-
-        }
-
-
     }
 }
