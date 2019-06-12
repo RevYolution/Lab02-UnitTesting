@@ -6,9 +6,23 @@ namespace ATMTests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void CannotHaveNegativeBalance()
         {
 
         }
+
+        [Fact]
+        public void CannotDepositNegative()
+        {
+
+        }
+        
+        [Fact]
+        public void CanDepositDecimal()
+        {
+
+        }
+
+
     }
 }
