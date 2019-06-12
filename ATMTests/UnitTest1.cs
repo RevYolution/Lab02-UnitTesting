@@ -1,23 +1,34 @@
 using System;
 using Xunit;
+using BankApp;
 
 namespace ATMTests
 {
     public class UnitTest1
     {
-        [Fact]
+        [Theory]
+        [InlineData("Balance", "1")]
+        [InlineData("Withdraw", "2")]
+        [InlineData("Deposit", "3")]
+        [InlineData("Exit", "4")]
+        public void MigratesToCorrectOperation(string expected, string commandInput)
+        {
+            Assert.Equal(expected, Program.Main(commandInput));
+        }
+
+        //[Fact]
         public void CannotHaveNegativeBalance()
         {
 
         }
 
-        [Fact]
+        //[Fact]
         public void CannotDepositNegative()
         {
 
         }
         
-        [Fact]
+        //[Fact]
         public void CanDepositDecimal()
         {
 
