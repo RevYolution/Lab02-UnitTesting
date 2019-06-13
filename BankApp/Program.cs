@@ -21,7 +21,9 @@ namespace BankApp
             }
 
         }
-
+        /// <summary>
+        /// Switch port for the user to choose what option to run
+        /// </summary>
         public static void BankConsole()
         {
             while (true)
@@ -47,6 +49,25 @@ namespace BankApp
                         throw;
                     }
                 }
+                if (userAction == 3)
+                {
+                    Console.WriteLine("How much would you like to deposit?");
+                    try
+                    {
+                        string userDeposit = Console.ReadLine();
+                        int desiredDeposit = Convert.ToInt32(userDeposit);
+                        balance = Deposit(desiredDeposit, balance);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+                if (userAction == 4)
+                {
+                    break;
+                }
             }
         }
 
@@ -64,6 +85,9 @@ namespace BankApp
             return userAction;
         }
 
+        /// <summary>
+        /// Allows users to view their balance at any point
+        /// </summary>
         public static void ViewBalance()
         {
             Console.WriteLine($"Your Current balance is {balance}");
@@ -71,25 +95,41 @@ namespace BankApp
             
         }
 
-        
+        /// <summary>
+        /// Allows user to withdraw based off the withdraw amount.
+        /// </summary>
+        /// <param name="number">Amount to be withdrawn from balance</param>
+        /// <param name="balance">Current balance</param>
+        /// <returns>integer balance</returns>
         public static int Withdraw(int number, int balance)
         {
+            if (balance - number < 0)
+            {
+                 Console.WriteLine($"Insufficient funds. Your balance is {balance}");
+                int userAction = 2;
+                return userAction;
+            }
            return balance -= number;
             
         }
 
-        //public static int Deposit(decimal balance)
-        //{
-        //    Console.WriteLine("How much would you like to deposit?");
-        //    string deposit = Console.ReadLine();
-        //    decimal depositAmount = Convert.ToDecimal(deposit);
-        //    decimal newBalance = balance + depositAmount;
-        //    return newBalance;
-        //}
+        /// <summary>
+        /// Allows users to add to balance.
+        /// </summary>
+        /// <param name="number">Amount to be added to balance</param>
+        /// <param name="balance">Current balance</param>
+        /// <returns>integer balance</returns>
+        public static int Deposit(int number,int balance)
+        {
+            if (number < 0)
+            {
+                Console.WriteLine("Invalid deposit");
+                int userAction = 3;
+                return userAction;
+            }
 
-        //public static string Exit()
-        //{
-        //    return "Exit";
-        //}
+            return balance += number;
+        }
+
     }
 }
