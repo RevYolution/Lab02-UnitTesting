@@ -106,7 +106,7 @@ namespace BankApp
             if (balance - number < 0)
             {
                  Console.WriteLine($"Insufficient funds. Your balance is {balance}");
-                int userAction = 2;
+                int userAction = balance;
                 return userAction;
             }
            return balance -= number;
@@ -124,7 +124,7 @@ namespace BankApp
             if (number < 0)
             {
                 Console.WriteLine("Invalid deposit");
-                int userAction = 3;
+                int userAction = balance;
                 return userAction;
             }
 

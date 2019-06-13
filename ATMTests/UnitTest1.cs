@@ -31,10 +31,10 @@ namespace ATMTests
         }
 
         [Theory]
-        [InlineData(3, -10)]
-        [InlineData(3, -100)]
-        [InlineData(3, -5)]
-        [InlineData(3, -6)]
+        [InlineData(1000, -10)]
+        [InlineData(1000, -100)]
+        [InlineData(1000, -5)]
+        [InlineData(1000, -6)]
 
         public void cannotDepositNegative(int expected, int deposit)
         {
@@ -43,10 +43,12 @@ namespace ATMTests
         }
 
         [Theory]
-        [InlineData(2, 10)]
-        [InlineData(2, 100)]
-        [InlineData(2, 5)]
-        [InlineData(2, 6)]
+        [InlineData(0,10)]
+        [InlineData(0, 100)]
+        [InlineData(0, 5)]
+        [InlineData(0, 6)]
+        [InlineData(0, 0)]
+
 
         public void cannotOverWithdraw(int expected, int withdrawn)
         {
