@@ -29,12 +29,11 @@ Then select and open ```BankApp.sln```
 ------------------------------
 
 ## Visuals
-***[Add screenshots of your application in action]***
 
 ##### Application Start
-Coming Soon 
+![Startup of ATM](https://user-images.githubusercontent.com/47017138/59395110-1fef3980-8d37-11e9-8035-d861afced21b.PNG)
 ##### Using the Application
-Coming Soon 
+![Sample ATM Output](https://user-images.githubusercontent.com/47017138/59395113-22519380-8d37-11e9-976c-41f5860fd928.PNG)
 ##### Application End
 Coming Soon 
 
